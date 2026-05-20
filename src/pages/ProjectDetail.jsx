@@ -112,15 +112,15 @@ const ProjectDetail = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="bg-blue-200 dark:bg-slate-800 rounded-3xl p-8">
+          <div className="bg-slate-100 dark:bg-slate-800 rounded-3xl shadow-2xl p-6 flex items-center justify-center group">
 
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full object-contain rounded-2xl"
-            />
+  <img
+    src={project.image}
+    alt={project.title}
+    className="w-full max-h-[600px] object-contain group-hover:scale-105 transition duration-500"
+  />
 
-          </div>
+</div>
 
         </div>
 
