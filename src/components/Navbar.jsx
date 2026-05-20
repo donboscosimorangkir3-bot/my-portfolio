@@ -63,8 +63,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-6">
 
         {/* LOGO */}
-        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Don Bosco
+        <h1 className="logo-font text-3xl font-extrabold tracking-wide bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Don Bosco Simorangkir
         </h1>
 
         {/* DESKTOP MENU */}
