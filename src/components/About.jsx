@@ -99,7 +99,7 @@ const About = () => {
               <div className="bg-white dark:bg-slate-700 rounded-2xl p-5 text-center shadow-sm">
 
                 <h4 className="text-3xl font-bold text-blue-600">
-                  3+
+                  2+
                 </h4>
 
                 <p className="text-slate-500 dark:text-slate-300 mt-2 text-sm">
