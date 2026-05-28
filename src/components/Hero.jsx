@@ -44,7 +44,7 @@ const useTypewriter = (words, typingSpeed = 60, deletingSpeed = 35, pauseDuratio
 }
 
 const floatUp = {
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
 }
 
@@ -54,76 +54,88 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-6 pt-24 pb-12
-                 bg-slate-50 dark:bg-slate-950 transition-colors duration-500"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16
+                 bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-500"
     >
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+      {/* Dynamic Grid Background Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+
+      {/* Aura Blobs for Premium Atmosphere */}
+      <div className="aura-blob w-72 h-72 bg-violet-500/20 dark:bg-violet-600/10 top-20 left-10" />
+      <div className="aura-blob w-[450px] h-[450px] bg-pink-500/10 dark:bg-pink-600/5 bottom-10 right-10" />
+      <div className="aura-blob w-80 h-80 bg-blue-500/10 dark:bg-blue-600/5 top-40 right-1/3" />
+
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
 
         {/* ── LEFT SIDE ── */}
         <motion.div
           variants={floatUp}
           initial="initial"
           animate="animate"
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left"
         >
 
           {/* Available badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6
-                          rounded-full border border-slate-200 dark:border-slate-800
-                          bg-white dark:bg-slate-900 text-sm text-slate-500 dark:text-slate-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            Available for work
+                          rounded-full border border-slate-200/80 dark:border-slate-800/80
+                          bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm text-sm text-slate-500 dark:text-slate-400 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Available for freelance & full-time work
           </div>
 
           {/* Name */}
-          <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4
-                         text-slate-900 dark:text-white">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4
+                         text-slate-900 dark:text-white tracking-tight">
             Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
               DonBosco<br />Simorangkir
             </span>
           </h1>
 
           {/* Typewriter */}
-          <div className="flex items-center gap-2 text-lg font-medium
-                          text-slate-500 dark:text-slate-400 mb-5 h-8">
-            <HiCode className="text-violet-500 shrink-0" />
+          <div className="flex items-center gap-2 text-xl font-bold
+                          text-violet-600 dark:text-violet-400 mb-6 h-8 tracking-wide">
+            <HiCode className="text-2xl shrink-0" />
             <span>{typedText}</span>
-            <span className="inline-block w-0.5 h-5 bg-violet-500 animate-[blink_1s_step-end_infinite]" />
+            <span className="inline-block w-0.5 h-6 bg-violet-600 dark:bg-violet-400 animate-[blink_1s_step-end_infinite]" />
           </div>
 
           {/* Bio */}
-          <p className="text-slate-500 dark:text-slate-400 text-base leading-relaxed
-                        max-w-md mb-6">
+          <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed
+                        max-w-xl mb-8">
             I build modern, responsive, and user-friendly web applications using
             React, Laravel, and modern frontend technologies — with a focus on
             clean design and smooth user experiences.
           </p>
 
           {/* Stats */}
-          <div className="flex gap-8 mb-8">
+          <div className="flex gap-8 mb-8 border-y border-slate-200/50 dark:border-slate-800/50 py-6 max-w-lg">
             {[
               { num: "2+", label: "Years experience" },
               { num: "10+", label: "Projects built" },
               { num: "4", label: "Tech stacks" },
             ].map((s, i) => (
-              <div key={i} className={i > 0 ? "pl-8 border-l border-slate-200 dark:border-slate-800" : ""}>
-                <p className="text-2xl font-semibold text-slate-900 dark:text-white">{s.num}</p>
-                <p className="text-xs text-slate-400 mt-0.5">{s.label}</p>
+              <div key={i} className={`flex-1 ${i > 0 ? "pl-8 border-l border-slate-200/50 dark:border-slate-800/50" : ""}`}>
+                <p className="text-3xl font-extrabold text-slate-900 dark:text-white">{s.num}</p>
+                <p className="text-sm text-slate-400 mt-1 font-medium">{s.label}</p>
               </div>
             ))}
           </div>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-4 mb-8">
             <a
               href="/cvdonbosco.pdf"
               download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full
-                         bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium
-                         transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
+                         bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-700 hover:to-pink-700 text-white text-sm font-semibold
+                         transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/20 hover:-translate-y-0.5 cursor-pointer"
             >
-              <HiDownload className="text-base" />
+              <HiDownload className="text-lg" />
               Download CV
             </a>
 
@@ -131,19 +143,19 @@ const Hero = () => {
               onClick={() =>
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
               }
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full
-                         border border-slate-200 dark:border-slate-700
-                         text-slate-700 dark:text-slate-300 text-sm font-medium
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
+                         border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm
+                         text-slate-700 dark:text-slate-300 text-sm font-semibold
                          hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400
-                         transition-colors duration-200"
+                         transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
             >
-              <HiFolderOpen className="text-base" />
+              <HiFolderOpen className="text-lg" />
               View Projects
             </button>
           </div>
 
           {/* Social icons */}
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             {[
               { href: "https://github.com/donboscosimorangkir3-bot", icon: <FaGithub />, label: "GitHub" },
               { href: "https://linkedin.com/in/don-bosco-simorangkir-a224a0383/", icon: <FaLinkedin />, label: "LinkedIn" },
@@ -155,12 +167,12 @@ const Hero = () => {
                 aria-label={s.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full text-lg
-                           border border-slate-200 dark:border-slate-800
-                           bg-white dark:bg-slate-900
+                className="w-11 h-11 flex items-center justify-center rounded-full text-xl
+                           border border-slate-200 dark:border-slate-800/80
+                           bg-white dark:bg-slate-900/80 backdrop-blur-sm
                            text-slate-500 dark:text-slate-400
-                           hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400
-                           transition-colors duration-200"
+                           hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400 hover:scale-110
+                           transition-all duration-300"
               >
                 {s.icon}
               </a>
@@ -174,61 +186,70 @@ const Hero = () => {
           variants={floatUp}
           initial="initial"
           animate="animate"
-          transition={{ duration: 0.7, delay: 0.15 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="flex justify-center"
         >
           <div className="relative">
 
-            {/* Profile image */}
-            <div className="w-72 h-72 md:w-[340px] md:h-[340px] rounded-full overflow-hidden
-                            border border-slate-200 dark:border-slate-800
-                            bg-slate-100 dark:bg-slate-900">
-              <img
-                src={profile}
-                alt="DonBosco Simorangkir"
-                className="w-full h-full object-cover"
+            {/* Profile image with Dynamic Spinning Gradient Border */}
+            <div className="relative w-80 h-80 md:w-[380px] md:h-[380px] rounded-3xl p-[4px] overflow-hidden group shadow-2xl">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 rounded-3xl"
+                animate={{
+                  rotate: 360
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 8,
+                  ease: "linear"
+                }}
               />
+              <div className="relative w-full h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950">
+                <img
+                  src={profile}
+                  alt="DonBosco Simorangkir"
+                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 hover:scale-105 transition-all duration-700"
+                />
+              </div>
             </div>
 
             {/* Floating card — top right */}
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="absolute -top-2 -right-10
-                         flex items-center gap-2.5 px-4 py-2.5 rounded-xl
-                         bg-white dark:bg-slate-900
-                         border border-slate-200 dark:border-slate-800
-                         text-sm shadow-sm"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="absolute -top-6 -right-8
+                         flex items-center gap-3 px-4 py-3 rounded-2xl
+                         bg-white/80 dark:bg-slate-900/80 backdrop-blur-md
+                         border border-slate-200/50 dark:border-slate-800/50
+                         text-sm shadow-xl z-25"
             >
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg
-                               bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-base">
+              <span className="flex items-center justify-center w-8 h-8 rounded-xl
+                               bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 text-lg">
                 <HiCode />
               </span>
               <div>
-                <p className="text-xs text-slate-400 leading-none mb-0.5">Stack</p>
-                <p className="font-medium text-slate-800 dark:text-slate-100 leading-none">React · Laravel · Flutter</p>
+                <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider leading-none mb-1">Stack</p>
+                <p className="font-bold text-slate-800 dark:text-slate-100 leading-none">React · Laravel · Flutter</p>
               </div>
             </motion.div>
 
             {/* Floating card — bottom left */}
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75, duration: 0.5 }}
-              className="absolute -bottom-4 -left-10
-                         flex items-center gap-2.5 px-4 py-2.5 rounded-xl
-                         bg-white dark:bg-slate-900
-                         border border-slate-200 dark:border-slate-800
-                         text-sm shadow-sm"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="absolute -bottom-6 -left-8
+                         flex items-center gap-3 px-4 py-3 rounded-2xl
+                         bg-white/80 dark:bg-slate-900/80 backdrop-blur-md
+                         border border-slate-200/50 dark:border-slate-800/50
+                         text-sm shadow-xl z-25"
             >
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg
-                               bg-violet-50 dark:bg-violet-950 text-violet-600 dark:text-violet-400 text-base">
+              <span className="flex items-center justify-center w-8 h-8 rounded-xl
+                               bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 text-lg">
                 <HiSparkles />
               </span>
               <div>
-                <p className="text-xs text-slate-400 leading-none mb-0.5">Focus</p>
-                <p className="font-medium text-slate-800 dark:text-slate-100 leading-none">Backend & Frontend Developer</p>
+                <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider leading-none mb-1">Focus</p>
+                <p className="font-bold text-slate-800 dark:text-slate-100 leading-none">Fullstack Web & Mobile</p>
               </div>
             </motion.div>
 
