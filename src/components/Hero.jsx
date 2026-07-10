@@ -4,7 +4,7 @@ import { HiDownload, HiFolderOpen } from "react-icons/hi"
 import { HiCode, HiSparkles } from "react-icons/hi"
 import { motion } from "framer-motion"
 
-import profile from "../assets/profile.jpeg"
+import profile from "../assets/profile.jpg"
 
 const roles = ["Frontend Developer", "Backend Developer", "React Developer", "UI/UX Enthusiast"]
 
