@@ -206,10 +206,10 @@ const Hero = () => {
               />
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950">
                 <img
-                  src={profile}
-                  alt="DonBosco Simorangkir"
-                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 hover:scale-105 transition-all duration-700"
-                />
+                src={profile}
+                alt="DonBosco Simorangkir"
+                className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 hover:scale-105 transition-all duration-700"
+              />
               </div>
             </div>
 
