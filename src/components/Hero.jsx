@@ -208,7 +208,8 @@ const Hero = () => {
                 <img
                 src={profile}
                 alt="DonBosco Simorangkir"
-                className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 hover:scale-105 transition-all duration-700"
+                className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 hover:scale-[1.02]"
+                style={{ objectPosition: "50% 15%" }}
               />
               </div>
             </div>
