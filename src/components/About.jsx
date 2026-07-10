@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { HiLightningBolt, HiCheckCircle, HiSparkles } from "react-icons/hi"
-import profile from "../assets/profile.jpeg"
+import profile from "../assets/profile.jpg"
 
 const About = () => {
   return (
