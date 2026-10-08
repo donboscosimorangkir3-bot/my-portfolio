@@ -63,7 +63,7 @@ const About = () => {
               {/* BUTTONS */}
               <div className="flex gap-3 mt-6 flex-wrap justify-center">
                 <a
-                  href="/cvdonbosco.pdf"
+                  href="/CV_Don Bosco Simorangkir.pdf"
                   download
                   className="px-6 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-pink-600 text-white font-semibold shadow-md hover:shadow-lg hover:shadow-violet-500/20 hover:-translate-y-0.5 transition duration-300 text-sm cursor-pointer"
                 >

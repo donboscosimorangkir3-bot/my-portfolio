@@ -129,7 +129,7 @@ const Hero = () => {
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             <a
-              href="/cvdonbosco.pdf"
+              href="/CV_Don Bosco Simorangkir.pdf"
               download
               className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
                          bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-700 hover:to-pink-700 text-white text-sm font-semibold
